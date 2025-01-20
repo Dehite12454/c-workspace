@@ -1,4 +1,4 @@
-#include <stdio.h>  //1000 이하의 3 또는 5 의 배수인 자연수들의 합을 구한다.
+#include <stdio.h>  //합이 2000이 되는 a,b,c 집합 구하기(단 a>b>c 를 만족하는 자연수여야 한다.)
 int main(){
     int a,b,c;
     int count = 0;
