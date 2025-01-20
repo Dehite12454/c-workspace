@@ -33,5 +33,19 @@ int main(){
         printf("you are so small\n");
     };
 
+    int usranswer;
+
+    printf("컴퓨터가 생각한 숫자를 맞추어 보세요! \n");
+
+    for (;;) {  // 무한 루프를 설정할때 이와 같이 설정 가능하다.
+    scanf("%d", &usranswer);
+    if (usranswer == 3) {
+      printf("맞추셨군요! \n");
+      break;    // 루프문 자체에서 탈출할때 break를 쓸 수 있다. continue를 쓰면 해당 루프만 건너뛰고 다음 루프로 넘어간다.
+    } else {
+      printf("틀렸어요! \n");
+    }
+    }
+
     return 0;
 }
