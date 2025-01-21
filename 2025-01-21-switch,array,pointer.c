@@ -30,7 +30,6 @@ int main() {
 
   //컴퓨터가 실수를 표현하는 원리-강좌 참고해서 블로그 쓰기
 
-  int main() {
   int a;
   double b;
 
