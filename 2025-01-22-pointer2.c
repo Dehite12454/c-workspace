@@ -1,8 +1,12 @@
 #include <stdio.h>
-int main() {
-  int arr[5] = {1, 2, 3, 4, 5};
+ 
+int main(void) {
+    int a[4];
+    int *a[3];
+    int b = 4;
+    a[3] = &b;
 
-  printf("3[arr] : %d \n", 3 [arr]);
-  printf("*(3+a) : %d \n", *(arr + 3));
-  return 0;
+    printf("%d",*a[3]);
+ 
+    return 0;
 }
