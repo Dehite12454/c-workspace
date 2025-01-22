@@ -72,3 +72,5 @@ int main() {
 }
 
 //int* arr[3] = {&num01, &num02, &num03}; // int형 포인터 배열 선언 이런것도 가능하다.
+
+//https://bgspro.tistory.com/88 참고
