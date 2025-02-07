@@ -1,3 +1,4 @@
+//유클리도 호제법을 이용해서 N 개의 수들의 최대공약수를 구하는 함수를 만들어보세요.
 #include <stdio.h>
 int uclyde(int a,int b);
 int main(){

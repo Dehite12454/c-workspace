@@ -1,3 +1,7 @@
+/*
+사용자로 부터 5 명의 학생의 수학, 국어, 영어 점수를 입력 받아서 출력하도록 하세요. 
+특히, 평균을 기준으로 평균 이상인 사람 옆에는 '합격', 아닌 사람은 '불합격' 을 출력하게 해보세요.
+*/
 #include <stdio.h>
 int mkarray(int *parr,int size);
 double avg(int arr[5],int size);
