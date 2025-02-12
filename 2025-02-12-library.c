@@ -36,7 +36,7 @@ int main(){
     char return_title[30];
 
     while(1){
-        printf("1)Add book to your library\n");
+        printf("\n1)Add book to your library\n");
         printf("2)Search for what you want\n");
         printf("3)Take a book to your home\n");
         printf("4)Return your book to the library\n");
@@ -46,7 +46,7 @@ int main(){
 
         switch (input){
             case 1:
-                printf("The title of new book:");
+                printf("\nThe title of new book:");
                 scanf("%s",newbook_title);
                 getchar();
                 printf("The author of new book:");
@@ -62,7 +62,7 @@ int main(){
 
             case 2:
                 while (1){
-                    printf("1)Title\n");
+                    printf("\n1)Title\n");
                     printf("2)Author\n");
                     printf("3)Publisher\n");
                     printf("4)Go back\n");
@@ -70,21 +70,21 @@ int main(){
                     scanf("%d",&input2);
                     getchar();
                     if (input2 == 1){
-                        printf("The title of new book:");
+                        printf("\nThe title of new book:");
                         scanf("%s",search_title);
                         getchar();
 
                         search_title_book(library,search_title);
                         break;
                     } else if (input2 == 2){
-                        printf("The author of new book:");
+                        printf("\nThe author of new book:");
                         scanf("%s",search_author);
                         getchar();
 
                         search_author_book(library,search_author);
                         break;
                     } else if (input2 == 3){
-                        printf("The publisher of new book:");
+                        printf("\nThe publisher of new book:");
                         scanf("%s",search_publisher);
                         getchar();
 
@@ -100,7 +100,7 @@ int main(){
                 break;
 
             case 3:
-                printf("What is the title of the book?:");
+                printf("\nWhat is the title of the book?:");
                 scanf("%s",lend_title);
                 getchar();
 
@@ -108,7 +108,7 @@ int main(){
                 break;
 
             case 4:
-                printf("What is the title of the book?:");
+                printf("\nWhat is the title of the book?:");
                 scanf("%s",return_title);
                 getchar();
 
