@@ -14,18 +14,20 @@
 #include <stdio.h>
 
 int add_book(char (*arr[3][30]),int num,char *title,char *author,char *publisher);
-int search_title_book(char (*arr[3][30]), char *pst);
-int search_author_book(char (*arr[3][30]), char *pst);
-int search_publisher_book(char (*arr[3][30]), char *pst);
+int search_title_book(char (*arr[3][30]),int index, char *pst);
+int search_author_book(char (*arr[3][30]),int index, char *pst);
+int search_publisher_book(char (*arr[3][30]),int index, char *pst);
 int lend_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst);
 int return_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst);
+int compare(char *pst, char *dst);
 
 int main(){
     char library[100][3][30];
     char home[100][3][30];
     int input;
     int input2;
-    int booknum;
+    int booknum = 0;
+    int search_index = -1;
     char newbook_title[30];
     char newbook_author[30];
     char newbook_publisher[30];
@@ -45,7 +47,7 @@ int main(){
         getchar();
 
         switch (input){
-            case 1:
+            case 1:                                             //add 함수 구현
                 printf("\nThe title of new book:");
                 scanf("%s",newbook_title);
                 getchar();
@@ -60,7 +62,7 @@ int main(){
                 add_book(library,booknum,newbook_title,newbook_author,newbook_publisher);
                 break;
 
-            case 2:
+            case 2:                                 //search 함수 구현
                 while (1){
                     printf("\n1)Title\n");
                     printf("2)Author\n");
@@ -74,21 +76,48 @@ int main(){
                         scanf("%s",search_title);
                         getchar();
 
-                        search_title_book(library,search_title);
+                        while(1){
+                            search_index = search_title_book(library,search_index,search_title);
+                            printf("\nTitle:%s\n",library[search_index][0]);
+                            printf("Author:%s\n",library[search_index][1]);
+                            printf("Publisher%s\n",library[search_index][2]);
+                            if(search_title_book(library,search_index,search_title) == -1){
+                                break;
+                            }
+                        }
+                        search_index = -1;
                         break;
                     } else if (input2 == 2){
                         printf("\nThe author of new book:");
                         scanf("%s",search_author);
                         getchar();
 
-                        search_author_book(library,search_author);
+                        while(1){
+                            search_index = search_author_book(library,search_index,search_author);
+                            printf("\nTitle:%s\n",library[search_index][0]);
+                            printf("Author:%s\n",library[search_index][1]);
+                            printf("Publisher%s\n",library[search_index][2]);
+                            if(search_author_book(library,search_index,search_author) == -1){
+                                break;
+                            }
+                        }
+
                         break;
                     } else if (input2 == 3){
                         printf("\nThe publisher of new book:");
                         scanf("%s",search_publisher);
                         getchar();
 
-                        search_publisher_book(library,search_publisher);
+                        while(1){
+                            search_index = search_publisher_book(library,search_index,search_publisher);
+                            printf("\nTitle:%s\n",library[search_index][0]);
+                            printf("Author:%s\n",library[search_index][1]);
+                            printf("Publisher%s\n",library[search_index][2]);
+                            if(search_publisher_book(library,search_index,search_publisher) == -1){
+                                break;
+                            }
+                        }                        
+
                         break;
                     } else if (input2 == 4){
                         break;
@@ -99,7 +128,7 @@ int main(){
                 }           
                 break;
 
-            case 3:
+            case 3:                         //책 빌리기 함수 구현
                 printf("\nWhat is the title of the book?:");
                 scanf("%s",lend_title);
                 getchar();
@@ -107,7 +136,7 @@ int main(){
                 lend_book(library,home,lend_title);
                 break;
 
-            case 4:
+            case 4:                          //책 반납 함수 구현
                 printf("\nWhat is the title of the book?:");
                 scanf("%s",return_title);
                 getchar();
@@ -125,23 +154,77 @@ int main(){
 }
 
 int add_book(char (*arr[3][30]),int num,char *title,char *author,char *publisher){
-
+    int index = 0;
+    num--;
+    while(*title){
+        arr[num][0][index] = *title;
+        title++;
+        index++;
+    }
+    index = 0;
+    while(*author){
+        arr[num][1][index] = *author;
+        author++;
+        index++;
+    }
+    index = 0;
+    while(*publisher){
+        arr[num][1][index] = *publisher;
+        publisher++;
+        index++;
+    }
     return 1;
 }
 
-int search_title_book(char (*arr[3][30]), char *pst){
-
-    return 1;
+int search_title_book(char (*arr[3][30]),int index, char *pst){
+    index++;
+    while(1){
+        if (compare(arr[index][0],pst) == 0){
+            index++;
+            if(index == 101){
+                return -1;
+            }
+            continue;
+        }
+        else{
+            break;
+        }
+    }
+    return index;
 }
 
-int search_author_book(char (*arr[3][30]), char *pst){
-
-    return 1;
+int search_author_book(char (*arr[3][30]),int index, char *pst){
+    index++;
+    while(1){
+        if (compare(arr[index][1],pst) == 0){
+            index++;
+            if(index == 101){
+                return -1;
+            }
+            continue;
+        }
+        else{
+            break;
+        }
+    }
+    return index;
 }
 
-int search_publisher_book(char (*arr[3][30]), char *pst){
-
-    return 1;
+int search_publisher_book(char (*arr[3][30]),int index, char *pst){
+    index++;
+    while(1){
+        if (compare(arr[index][2],pst) == 0){
+            index++;
+            if(index == 101){
+                return -1;
+            }
+            continue;
+        }
+        else{
+            break;
+        }
+    }
+    return index;
 }
 
 int lend_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst){
@@ -152,4 +235,22 @@ int lend_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst){
 int return_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst){
 
     return 1;
+}
+
+int compare(char *dst, char *pst){
+    while (*pst){
+        if (*pst == *dst){
+            pst++;
+            dst++;
+        }
+        else {
+            return 0;
+        }
+    }
+    
+    if (*dst == '\0'){
+        return 1;
+    }
+    
+    return 0;
 }
