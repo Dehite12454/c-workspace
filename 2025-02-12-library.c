@@ -71,7 +71,7 @@ int main(){
                     printf("What do you want to search?:");
                     scanf("%d",&input2);
                     getchar();
-                    if (input2 == 1){
+                    if (input2 == 1){                           //제목을 통해서 찾기
                         printf("\nThe title of new book:");
                         scanf("%s",search_title);
                         getchar();
@@ -87,7 +87,7 @@ int main(){
                         }
                         search_index = -1;
                         break;
-                    } else if (input2 == 2){
+                    } else if (input2 == 2){                    //작가를 통해서 찾기
                         printf("\nThe author of new book:");
                         scanf("%s",search_author);
                         getchar();
@@ -103,7 +103,7 @@ int main(){
                         }
 
                         break;
-                    } else if (input2 == 3){
+                    } else if (input2 == 3){                    //출판사를 통해서 찾기
                         printf("\nThe publisher of new book:");
                         scanf("%s",search_publisher);
                         getchar();
@@ -119,7 +119,7 @@ int main(){
                         }                        
 
                         break;
-                    } else if (input2 == 4){
+                    } else if (input2 == 4){                    //이전 화면으로 돌아가기
                         break;
                     } else{
                         printf("Choose again.\n");
