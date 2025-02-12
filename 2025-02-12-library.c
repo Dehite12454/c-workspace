@@ -134,6 +134,7 @@ int main(){
                 getchar();
 
                 lend_book(library,home,lend_title);
+                
                 break;
 
             case 4:                          //책 반납 함수 구현
@@ -228,11 +229,85 @@ int search_publisher_book(char (*arr[3][30]),int index, char *pst){
 }
 
 int lend_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst){
+    int index = search_title_book(arr, 0, *pst);
+    char *title = arr[index][0];
+    char *author = arr[index][1];
+    char *publisher = arr[index][2];
+    char *title_h = arr2[index][0];
+    char *author_h = arr2[index][1];
+    char *publisher_h = arr2[index][2];
+
+    while(1){
+        *title_h = *title;
+        *title = 0;
+        title++;
+        title_h++;
+        if (*title == '0'){
+            break;
+        }
+    }
+
+        while(1){
+        *author_h = *author;
+        *author = 0;
+        author++;
+        author_h++;
+        if (*author == '0'){
+            break;
+        }
+    }
+
+        while(1){
+        *publisher_h = *publisher;
+        *publisher = 0;
+        publisher++;
+        publisher_h++;
+        if (*publisher == '0'){
+            break;
+        }
+    }
 
     return 1;
 }
 
 int return_book(char (*arr[3][30]),char (*arr2[3][30]), char *pst){
+    int index = search_title_book(arr2, 0, *pst);
+    char *title = arr2[index][0];
+    char *author = arr2[index][1];
+    char *publisher = arr2[index][2];
+    char *title_l = arr[index][0];
+    char *author_l = arr[index][1];
+    char *publisher_l = arr[index][2];
+
+    while(1){
+        *title_l = *title;
+        *title = 0;
+        title++;
+        title_l++;
+        if (*title == '0'){
+            break;
+        }
+    }
+
+        while(1){
+        *author_l = *author;
+        *author = 0;
+        author++;
+        author_l++;
+        if (*author == '0'){
+            break;
+        }
+    }
+
+        while(1){
+        *publisher_l = *publisher;
+        *publisher = 0;
+        publisher++;
+        publisher_l++;
+        if (*publisher == '0'){
+            break;
+        }
+    }
 
     return 1;
 }
@@ -247,7 +322,7 @@ int compare(char *dst, char *pst){
             return 0;
         }
     }
-    
+
     if (*dst == '\0'){
         return 1;
     }
