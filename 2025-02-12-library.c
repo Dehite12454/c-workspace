@@ -170,7 +170,7 @@ int add_book(char (*arr[3][30]),int num,char *title,char *author,char *publisher
     }
     index = 0;
     while(*publisher){
-        arr[num][1][index] = *publisher;
+        arr[num][2][index] = *publisher;
         publisher++;
         index++;
     }
