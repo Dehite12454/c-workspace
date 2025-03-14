@@ -13,12 +13,12 @@
 */
 #include <stdio.h>
 
-int add_book(char *arr[][3][30],int num,char *title,char *author,char *publisher);
-int search_title_book(char *arr[][3][30],int index, char *pst);
-int search_author_book(char *arr[][3][30],int index, char *pst);
-int search_publisher_book(char *arr[][3][30],int index, char *pst);
-int lend_book(char *arr[][3][30],char (*arr2[3][30]), char *pst);
-int return_book(char *ar[][3][30],char (*arr2[3][30]), char *pst);
+int add_book(char (*arr)[3][30],int num,char *title,char *author,char *publisher);
+int search_title_book(char (*arr)[3][30],int index, char *pst);
+int search_author_book(char (*arr)[3][30],int index, char *pst);
+int search_publisher_book(char (*arr)[3][30],int index, char *pst);
+int lend_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst);
+int return_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst);
 int compare(char *pst, char *dst);
 
 int main(){
@@ -154,7 +154,7 @@ int main(){
     return 0;
 }
 
-int add_book(char *arr[][3][30],int num,char *title,char *author,char *publisher){
+int add_book(char (*arr)[3][30],int num,char *title,char *author,char *publisher){
     int index = 0;
     num--;
     while(*title){
@@ -177,7 +177,7 @@ int add_book(char *arr[][3][30],int num,char *title,char *author,char *publisher
     return 1;
 }
 
-int search_title_book(char *arr[][3][30],int index, char *pst){
+int search_title_book(char (*arr)[3][30],int index, char *pst){
     index++;
     while(1){
         if (compare(arr[index][0],pst) == 0){
@@ -194,7 +194,7 @@ int search_title_book(char *arr[][3][30],int index, char *pst){
     return index;
 }
 
-int search_author_book(char *arr[][3][30],int index, char *pst){
+int search_author_book(char (*arr)[3][30],int index, char *pst){
     index++;
     while(1){
         if (compare(arr[index][1],pst) == 0){
@@ -211,7 +211,7 @@ int search_author_book(char *arr[][3][30],int index, char *pst){
     return index;
 }
 
-int search_publisher_book(char *arr[][3][30],int index, char *pst){
+int search_publisher_book(char (*arr)[3][30],int index, char *pst){
     index++;
     while(1){
         if (compare(arr[index][2],pst) == 0){
@@ -228,8 +228,8 @@ int search_publisher_book(char *arr[][3][30],int index, char *pst){
     return index;
 }
 
-int lend_book(char *arr[][3][30],char (*arr2[3][30]), char *pst){
-    int index = search_title_book(arr, 0, *pst);
+int lend_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst){
+    int index = search_title_book(arr, 0, pst);
     char *title = arr[index][0];
     char *author = arr[index][1];
     char *publisher = arr[index][2];
@@ -270,8 +270,8 @@ int lend_book(char *arr[][3][30],char (*arr2[3][30]), char *pst){
     return 1;
 }
 
-int return_book(char *arr[][3][30],char (*arr2[3][30]), char *pst){
-    int index = search_title_book(arr2, 0, *pst);
+int return_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst){
+    int index = search_title_book(arr2, 0, pst);
     char *title = arr2[index][0];
     char *author = arr2[index][1];
     char *publisher = arr2[index][2];
