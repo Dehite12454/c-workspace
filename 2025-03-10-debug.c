@@ -13,7 +13,7 @@ int main(){
     library[0][1][1] = 'b';
     library[0][1][2] = 'c';
 
-    printf("%s",library[0][1]);
+    printf("%d",library[0][0][0]);
 
     if(compare(library[0][1],pst2)){ //이런식으로 비교하는 것도 가능하다.
         printf("great");

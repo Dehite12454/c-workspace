@@ -239,30 +239,30 @@ int lend_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst){
 
     while(1){
         *title_h = *title;
-        *title = 0;
+        *title = '\0';  //원래 라이브러리에서 책 빼기
         title++;
         title_h++;
-        if (*title == '0'){
+        if (*title == '\0'){
             break;
         }
     }
 
         while(1){
         *author_h = *author;
-        *author = 0;
+        *author = '\0';
         author++;
         author_h++;
-        if (*author == '0'){
+        if (*author == '\0'){
             break;
         }
     }
 
         while(1){
         *publisher_h = *publisher;
-        *publisher = 0;
+        publisher = '\0';
         publisher++;
         publisher_h++;
-        if (*publisher == '0'){
+        if (*publisher == '\0'){
             break;
         }
     }
@@ -281,30 +281,30 @@ int return_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst){
 
     while(1){
         *title_l = *title;
-        *title = 0;
+        *title = '\0';
         title++;
         title_l++;
-        if (*title == '0'){
+        if (*title == '\0'){
             break;
         }
     }
 
         while(1){
         *author_l = *author;
-        *author = 0;
+        *author = '\0';
         author++;
         author_l++;
-        if (*author == '0'){
+        if (*author == '\0'){
             break;
         }
     }
 
         while(1){
         *publisher_l = *publisher;
-        *publisher = 0;
+        publisher = '\0';
         publisher++;
         publisher_l++;
-        if (*publisher == '0'){
+        if (*publisher == '\0'){
             break;
         }
     }
