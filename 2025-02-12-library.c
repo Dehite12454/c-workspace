@@ -237,35 +237,30 @@ int lend_book(char (*arr)[3][30],char (*arr2)[3][30], char *pst){
     char *author_h = arr2[index][1];
     char *publisher_h = arr2[index][2];
 
-    while(1){
+
+    while(*title){
         *title_h = *title;
         *title = '\0';  //원래 라이브러리에서 책 빼기
         title++;
         title_h++;
-        if (*title == '\0'){
-            break;
-        }
     }
+    *title_h = '\0';
 
-        while(1){
+    while(*author){
         *author_h = *author;
         *author = '\0';
         author++;
         author_h++;
-        if (*author == '\0'){
-            break;
-        }
     }
+    *author_h = '\0';
 
-        while(1){
+    while(*publisher){      //segmentation fault = 메모리가 접근 불가능한 곳에 접속하려는 시도.
         *publisher_h = *publisher;
         publisher = '\0';
         publisher++;
         publisher_h++;
-        if (*publisher == '\0'){
-            break;
-        }
     }
+    *publisher_h = '\0';
 
     return 1;
 }

@@ -7,13 +7,16 @@ int make_arr(char (*arr)[3][30],int index);
 int main(){
     char library[100][3][30];
     char pst[30] = {'a','b','c'};
-    char *pst2 = pst;
-
     library[0][1][0] = 'a';
     library[0][1][1] = 'b';
     library[0][1][2] = 'c';
 
-    printf("%d",library[0][0][0]);
+    char *pst2 = library[0][1];     // 이 의미에 대해 잘 알아보자/.
+
+    pst2++;
+    *pst2 = '\0';
+
+    printf("%s",library[0][1]);
 
     if(compare(library[0][1],pst2)){ //이런식으로 비교하는 것도 가능하다.
         printf("great");
